@@ -15,6 +15,7 @@
 
             // Задача 7
             Console.WriteLine("Введите индекс и нажмите enter");
+            Console.WriteLine("Введите индекс и нажмите enter");
             //string clientindex = Console.ReadLine();
             int ind = int.Parse(Console.ReadLine());
             Console.WriteLine("Вы ввели: " + ind);
