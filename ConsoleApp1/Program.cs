@@ -1,4 +1,6 @@
-﻿namespace ConsoleApp1
+﻿using System.Diagnostics.CodeAnalysis;
+
+namespace ConsoleApp1
 {
     internal class Program
     {
@@ -11,9 +13,21 @@
             //Console.WriteLine("Вы ввели: "+clientstring);
             //int[] clientarr = [];
 
-            Console.WriteLine("Секретное слово это: " + Program.Shifr1([8, 5, 12, 12, 15, 0, 22, 9, 11, 1]));
+            Console.WriteLine("Секретное слово это: " + Program.Z1_Shifr1([8, 5, 12, 12, 15, 0, 22, 9, 11, 1]));
 
-            // Задача 7
+            //Console.WriteLine("RESULTARR = " + Program.Z8_2(11, [1, 2, 4, 7, 9, 11]));
+           // int[] array_for_z8 = [1, 2, 4, 7, 9, 11];
+            int[] array_for_z8 = [1, 2, 4, 4, 7, 7, 9, 11];
+
+            int[] result_z8_2 = Program.Z8_2(11, array_for_z8);
+
+            //foreach (int t in result_z8_2) { Console.WriteLine("t="+t+": " + result_z8_2[t]); }
+
+
+
+
+
+            /*// Задача 7
             Console.WriteLine("Введите индекс и нажмите enter");
             Console.WriteLine("Введите индекс и нажмите enter");
             //string clientindex = Console.ReadLine();
@@ -21,15 +35,85 @@
             Console.WriteLine("Вы ввели: " + ind);
             int[] FirstArr = [1, 3, 2, 4, 1, 5];
             Console.WriteLine("Новый массив: " + Program.DeleteElement(ind, FirstArr));
-        
+        */
 
         }
         
     
-        
-        
-        
-        public static string Shifr1(int[] shifr)
+        public static int[] Z8 (int X, int[]Arr)
+        {
+            int[] arr = Arr;
+            int x = X;
+
+            int[] resultarr = new int[5];
+            int r = 0;
+
+            for (int i = 0; i < arr.Length; i++) // изменить 6 на ленгх
+            {
+                Console.WriteLine("i=" + i);
+                for (int j = 0; j < arr.Length; j++)
+                {
+                    int sum = arr[i] + arr[j];
+                    Console.WriteLine("sum =" + sum);
+
+                    if (sum == x)
+                    {
+                        Console.WriteLine("resultarr[" + r + "]=" + i);
+                        resultarr[r] = i; 
+                        resultarr[r + 1] = j;
+                        r++;
+                    }
+
+                }
+            }
+
+
+            return resultarr;
+        }
+
+        public static int[] Z8_2(int X, int[] Arr)
+        {
+            int[] arr = Arr;
+            int x = X;
+            
+            int[] arrcopy = arr;
+
+            int[] resultarr = new int[arr.Length];
+            int r = 0;
+            //int j = 1;
+            int sum = 0;
+
+            while (sum < x)
+            {
+                for (int i = 0; i < arr.Length; i++)
+                {
+
+                    for (int j = 0; j < arrcopy.Length; j++)
+                    {
+                        sum = arr[i] + arrcopy[j];
+                        if (sum > x) { break; }
+                        Console.WriteLine("sum ("+ arr[i] + "+"+arrcopy[j]+")= " + sum);
+                        if (sum == x) { 
+                            resultarr[r] = i; 
+                            resultarr[r + 1] = j;
+                            Console.WriteLine("_________" + r);
+                            r = r+2;
+                            Console.WriteLine("r=" + r);
+                        }
+                    }
+                }
+
+            }
+
+
+            return resultarr;
+        }
+
+
+
+
+
+        public static string Z1_Shifr1(int[] shifr)
         {
             // Задача
             Console.WriteLine("1. Задача с числовым шифром\r\n У тебя есть массив целых чисел, который является шифром. \r\n Каждое число в массиве — это позиция в алфавите (от 1 до 26). \r\n Твоя задача — преобразовать массив в строку, которая представляет собой слово, \r\n  где каждое число соответствует букве алфавита.");
@@ -49,7 +133,8 @@
             return allword;
         }
 
-        public static int[] DeleteElement(int index, int[] arr){
+        /*метод для задачи 7
+         * public static int[] DeleteElement(int index, int[] arr){
             int[] array = new int[arr.Length-1];
 
             //foreach (int i in array) {
@@ -61,8 +146,8 @@
 
 
             return array;
-        }
+        }*/
 }
-
+    //для задачи 7
     //public static int[] DeleteElement(int index; int[] arr){ }
 }
