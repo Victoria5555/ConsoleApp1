@@ -16,14 +16,22 @@ namespace ConsoleApp1
             Console.WriteLine("Секретное слово это: " + Program.Z1_Shifr1([8, 5, 12, 12, 15, 0, 22, 9, 11, 1]));
 
             //Console.WriteLine("RESULTARR = " + Program.Z8_2(11, [1, 2, 4, 7, 9, 11]));
-           // int[] array_for_z8 = [1, 2, 4, 7, 9, 11];
-            int[] array_for_z8 = [1, 2, 4, 4, 7, 7, 9, 11];
+            
+            // int[] array_for_z8 = [1, 2, 4, 7, 9, 11]; // 4,1
+             int[] array_for_z8 = [1, 2, 4, 4, 7, 7, 9, 11]; // 6,1
+            // int[] array_for_z8 = [1, 2, 9, 11]; // 2,1
+            // int[] array_for_z8 = [1, 3, 4, 9, 11]; // нет решения
+            int X_z8 = 11;
 
-            int[] result_z8_2 = Program.Z8_2(11, array_for_z8);
+            int[] result_z8_2 = Program.Z8_2(X_z8, array_for_z8);
 
-            //foreach (int t in result_z8_2) { Console.WriteLine("t="+t+": " + result_z8_2[t]); }
+            //foreach (int t in result_z8_2) {
+            //    Console.WriteLine(
+            //        //"t="+t+": " + 
+            //        result_z8_2[t]); 
+            //}
 
-
+            for (int k = 0; k < result_z8_2.Length; k++) { Console.WriteLine(result_z8_2[k]); }
 
 
 
@@ -48,7 +56,7 @@ namespace ConsoleApp1
             int[] resultarr = new int[5];
             int r = 0;
 
-            for (int i = 0; i < arr.Length; i++) // изменить 6 на ленгх
+            for (int i = 0; i < arr.Length; i++) 
             {
                 Console.WriteLine("i=" + i);
                 for (int j = 0; j < arr.Length; j++)
@@ -97,7 +105,9 @@ namespace ConsoleApp1
                             resultarr[r] = i; 
                             resultarr[r + 1] = j;
                             Console.WriteLine("_________" + r);
-                            r = r+2;
+                            // r = r+2;
+
+                            break;
                             Console.WriteLine("r=" + r);
                         }
                     }
