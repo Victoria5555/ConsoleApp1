@@ -33,7 +33,17 @@ namespace ConsoleApp1
 
             for (int k = 0; k < result_z8_2.Length; k++) { Console.WriteLine(result_z8_2[k]); }
 
+            Console.WriteLine("Задача 9. randomarray: ");
+            int L = 10;
+            int MIN = 0;
+            int MAX = 100;
 
+            //Console.WriteLine("Введите L: "); 
+           // L=Console.ReadLine();
+
+            int[] randarr = Program.Z9(L, MIN, MAX);
+            
+            //for (int j = 0; j < randarr.Length; j++) { Console.WriteLine(randarr[j]); }
 
             /*// Задача 7
             Console.WriteLine("Введите индекс и нажмите enter");
@@ -47,6 +57,57 @@ namespace ConsoleApp1
 
         }
         
+        public static int[] Z9(int L, int MIN, int MAX)
+        {
+            int l = L;
+            int min = MIN;
+            int max = MAX;
+
+            int[] randomarray = new int[l];
+
+            int currmax = max / l;
+            int currmin = min;
+            Random rnd = new Random(currmax);
+
+            int rint = min;
+            // int rint = rnd.Next(currmin,currmax);
+
+            Console.WriteLine("rint = " + rint);
+
+            for (int i = 0; i < l; i++)
+            {
+
+                rint = rnd.Next(currmin, currmax);
+
+
+                if (randomarray[i] < rint)
+                {
+                    randomarray[i] = rint;
+                    currmin = rint;
+                    currmax = max / (l - i);
+                    Console.WriteLine("i=" + i + " rint=" + rint + " currmin=" + currmin + " currmax=" + currmax);
+                }
+            }
+
+            // вывод массива 
+            //foreach (int t in randomarray){
+            // Console.WriteLine(randomarray[t]);
+            // }
+
+            for (int k = 0; k < l; k++)
+            {
+                Console.WriteLine("randomarray["+k+"]"+"="+randomarray[k]);
+            }
+
+
+            return randomarray;
+        }
+
+
+
+
+
+
     
         public static int[] Z8 (int X, int[]Arr)
         {
